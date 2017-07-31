@@ -1,0 +1,86 @@
+body {
+    font-family: 'Hind', sans-serif;
+}
+
+.shelf {
+    display: flex;
+}
+
+.shelf-title {
+    flex: 1;
+    text-align: right;
+    vertical-align: middle;
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+.read .shelf-title {
+    position: relative;
+}
+
+.read .shelf-title div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.currently-reading .shelf-title span {
+    line-height: 129px;
+}
+
+.shelf-title img {
+    display: inline;
+    width: 21px;
+}
+
+.books {
+    flex: 2;
+    text-align: center;
+}
+
+.book {
+    display: flex;
+    width: 550px;
+    margin: 0;
+    padding: 5px;
+}
+
+.book .thumbnail {
+    margin: 5px;
+    flex: 1;
+}
+
+.book .thumbnail img {
+    width: 70px;
+    vertical-align: middle;
+}
+
+.book .content {
+    margin: 25px 5px;
+    flex: 5;
+    text-align: left;
+}
+
+.read .book .content {
+    margin: 15px 5px;
+}
+
+.book .content img {
+    width: 100px;
+    margin: -40px 0;
+}
+
+.book .content h1 {
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: -10px;
+}
+
+.book .content h2 {
+    text-align: left;
+    font-size: 1.3em;
+    font-weight: 300;
+    margin: 0;
+}

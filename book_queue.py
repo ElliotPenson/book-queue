@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 book-queue.py
 

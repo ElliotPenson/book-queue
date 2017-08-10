@@ -7,17 +7,17 @@
         <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
-    {% for section in sections %}
-        <div class="shelf {{ section.title|replace(' ','-')|lower }}">
+    {% for shelf in shelves %}
+        <div class="shelf {{ shelf.title|replace(' ','-')|lower }}">
             <div class="shelf-title">
                 <div>
-                    <span>{{ section.title }}</span>&nbsp
-                    {% if section.title == 'Read' %}<img src="images/up-arrow.png" />{% endif %}
-                    {% if section.title == 'To-Read' %}<img src="images/down-arrow.png" />{% endif %}
+                    <span>{{ shelf.title }}</span>&nbsp
+                    {% if shelf.title == 'Read' %}<img src="images/up-arrow.png" />{% endif %}
+                    {% if shelf.title == 'To-Read' %}<img src="images/down-arrow.png" />{% endif %}
                 </div>
             </div>
             <div class="books">
-            {% for book in section.books %}
+            {% for book in shelf.books %}
                 <div class="book">
                     <div class="thumbnail">
                         <img src="{{ book.image }}" />
@@ -25,7 +25,7 @@
                     <div class="content">
                         <h1>{{ book.title }}</h1>
                         <h2>by&nbsp{{ book.authors|join(', ') }}</h2>
-                        {% if section.title == 'Read' %}
+                        {% if shelf.title == 'Read' %}
                         <img src="images/{{ book.rating }}-star.png" />
                         {% endif %}
                     </div>

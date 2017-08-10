@@ -12,7 +12,7 @@ from good_reads_user import GoodReadsUser
 
 def main(user_id, api_key):
     user = GoodReadsUser(user_id, api_key)
-    sections = [
+    shelves = [
         {
             'title': 'Read',
             'books': reversed(list(user.get_shelf('read', 'date_read')))
@@ -26,7 +26,7 @@ def main(user_id, api_key):
             'books': user.get_shelf('to-read', 'position')
         }
     ]
-    render_template('generated/index.html', sections=sections)
+    render_template('generated/index.html', shelves=shelves)
 
 
 def render_template(output_file, **data):

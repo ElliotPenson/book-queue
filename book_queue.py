@@ -5,6 +5,9 @@ book-queue.py
 @author Elliot Penson
 """
 
+from os import mkdir, listdir, path
+from shutil import copy2, copytree, rmtree
+
 import argh
 from jinja2 import Environment, PackageLoader, select_autoescape
 
@@ -27,7 +30,21 @@ def main(user_id, api_key):
             'books': user.get_shelf('to-read', 'position')
         }
     ]
+    rmtree('generated/', ignore_errors=True)
+    mkdir('generated/')
     render_template('generated/index.html', shelves=shelves)
+    generate_assets()
+
+
+def generate_assets(source='assets/', destination='generated/'):
+    """Copy the contents of the source directory to destination directory."""
+    for asset in listdir(source):
+        asset_source = path.join(source, asset)
+        asset_destination = path.join(destination, asset)
+        if path.isdir(asset_source):
+            copytree(asset_source, asset_destination)
+        else:
+            copy2(asset_source, asset_destination)
 
 
 def render_template(output_file, **data):
